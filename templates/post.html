@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>{{post_name}}</h1>
+<p>{{content}}</p>
+{% if filename %}
+<<audio controls>
+        <source src="/static/uploads/{{filename}}" type="audio/mpeg">
+    </audio>>
+{% endif %}
+    <a href="{{ url_for('posts') }}"><button>На главную</button></a>
+{% endblock %}
+

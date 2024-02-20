@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    Создать пост
+
+{% endblock %}
+
+
+{% block content %}
+{% if session['login'] == 'admin' %}
+<form action="{{ url_for('post_create') }}" method="POST" enctype="multipart/form-data">
+        <label for="name">Название</label><br>
+        <input id='name' name="name" type="text"/><br>
+
+        <label for="content">Текст</label><br>
+        <input id='content' name="content" type="text" /><br>
+
+        <label for="image">Загрузить аудио</label><br>
+        <input id="image" type="file" name="music_uploading"><br>
+
+        <input type="submit" value="отправить"><br>
+    </form>
+{% else %}
+<p> Вам нельзя создавать посты</p>
+{% endif %}
+{% endblock %}

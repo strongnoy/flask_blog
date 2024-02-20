@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    {{ user.username }}
+{% endblock %}
+
+{% block content %}
+        <h1>User Details</h1>
+        <p>ID: {{ user.id }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p> О себе</p>
+        <p>{{bio}}</p>
+{% endblock %}

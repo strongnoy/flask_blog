@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form method="POST" action="{{url_for('signup')}}">
+        <label for="username">Enter username</label>
+        <input type="text" name="username" id="username" required>
+
+        <label for="password">Enter password</label>
+        <input type="password" name="password" id="password" required>
+
+        <input type="submit" value="отправить">
+    </form>
+<p>Уже зарегистрированы?</p>
+<a href="login">Войти</a>
+{% endblock %}

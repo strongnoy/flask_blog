@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block title %}
+    Лайки
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for like in likes %}
+            <link><a href="{{ url_for('user_profile', user_id=like[0]) }}">{{ like.username }}</a></link>
+        {% endfor %}
+    </ul>
+{% endblock %}

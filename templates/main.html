@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Главная{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {%  block headers %}
+    {% endblock %}
+
+
+</head>
+<body>
+    <a href="{{ url_for('posts') }}"><button class="home-button">Home</button></a>
+
+     <a href="{{ url_for('profile') }}"><button class="profile-button">Перейти в профиль </button></a>
+
+     {% if session['login'] == 'admin' %}
+     <a href="/postCreate"><button class = "profile-button"> Create a Post</button></a>
+     {% endif %}
+
+     <form method="POST" action="{{ url_for('search_user') }}">
+            <label for="username">Enter Username:</label>
+            <input type="text" name="username" id="username" required>
+            <button class = "profile-button" type="submit">Search</button>
+     </form>
+
+    {% if user %}
+    {% elif user_id %}
+        <p>User  {{ username }} not found.</p>
+    {% endif %}
+
+
+<h1>Main Page</h1>
+{% for post in posts %}
+    <div class="post">
+        <h2>{{ post.post_name }}</h2>
+        <p>{{ post.content }}</p>
+        {% if post.music %}
+            <audio controls>
+                <source src="/static/uploads/{{ post.music }}" type="audio/mpeg">
+            </audio>
+        {% endif %}
+        <p>Количество лайков {{post.likes_count}}</p>
+        {% if existing_likes[post_id] %}
+        <form method="POST" action="{{ url_for('unlike_post', post_id=post.id) }}">
+            <button class="unlike-button" type="submit">Убрать лайк</button>
+        </form>
+        {% else %}
+          <form method="POST" action="{{ url_for('like_post', post_id=post.id) }}">
+            <button type="submit">Лайк</button>
+        </form>
+        {% endif %}
+        <a href="{{ url_for('view_likes', post_id=post.id) }}">Посмотреть, кто лайкнул</a>
+    </div>
+{% endfor %}
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
