@@ -1,45 +1,48 @@
 body {
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        color: #333;
-    }
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
 
-    button.home-button,
-    button.profile-button,
-    button.create-post-button,
-    button.search-button {
-        margin: 10px;
-        padding: 5px 10px;
-        font-size: 16px;
-        background-color: #7bb1bb;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+button.home-button,
+button.profile-button,
+button.create-post-button,
+button.search-button {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #7bb1bb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    button.home-button:hover,
-    button.profile-button:hover,
-    button.create-post-button:hover,
-    button.search-button:hover {
-        background-color: #4d7b83;
-    }
-    button.delete-button{
-         margin: 10px;
-        padding: 5px 10px;
-        font-size: 16px;
-        background-color: #ff0000;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer
-    }
-    button.delete-button:hover{
-        background-color: #8b0000
-    }
-    button.unlike-button {
+button.home-button:hover,
+button.profile-button:hover,
+button.create-post-button:hover,
+button.search-button:hover {
+    background-color: #4d7b83;
+}
+
+button.delete-button {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+button.delete-button:hover {
+    background-color: #8b0000
+}
+
+button.unlike-button {
     background-color: #008000;
     color: white;
     padding: 10px;
@@ -47,36 +50,38 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 5px;
-    form {
-        margin-top: 20px;
-    }
+}
 
-    form label {
-        margin-right: 10px;
-    }
+form {
+    margin-top: 20px;
+}
+
+form label {
+    margin-right: 10px;
+}
 
 
-  .post {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 20px;
-        background-color: #f9f9f9;
-        border-radius: 5px;
-    }
+.post {
+    border: 1px solid #000000;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
 
-    .post h2 {
-        color: #333;
-        margin-bottom: 5px;
-    }
+.post h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
 
-    .post p {
-        color: #555;
-        margin-bottom: 10px;
-    }
+.post p {
+    color: #555;
+    margin-bottom: 10px;
+}
 
-    .post audio {
-        margin-top: 10px;
-    }
+.post audio {
+    margin-top: 10px;
+}
 
 
 .content {

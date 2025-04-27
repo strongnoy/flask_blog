@@ -84,12 +84,15 @@ def update_bio():
 @app.route('/delete_profile', methods = ['POST'])
 def delete_profile():
     user_id = session['user_id']
-    with DBConnection() as conn:
-        conn.execute('DELETE FROM USERS WHERE ID = ?', (user_id,))
+    if session['login'] != 'admin':
+        with DBConnection() as conn:
+            conn.execute('DELETE FROM USERS WHERE ID = ?', (user_id,))
 
-    session.clear()
+        session.clear()
 
-    return redirect(url_for('signup'))
+        return redirect(url_for('signup'))
+    else:
+        redirect(url_for('posts'))
 
 
 

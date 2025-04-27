@@ -1,24 +1,27 @@
 {% extends 'main.html' %}
 {% block title %}
-    {{ session['login']}}
+{{ session['login']}}
 {% endblock %}
 
 {% block content %}
-        <h1>User Details</h1>
-        <p>ID: {{ session['user_id'] }}</p>
-        <p>Username: {{ session['login'] }}</p>
-        <p> О себе</p>
-        <p>{{bio}}</p>
- <form method="POST" action="{{ url_for('update_bio') }}">
+<h1>User Details</h1>
+<p>ID: {{ session['user_id'] }}</p>
+<p>Username: {{ session['login'] }}</p>
+<p> О себе</p>
+<p>{{bio}}</p>
+<form method="POST" action="{{ url_for('update_bio') }}">
 
-        <label for="bio">Bio:</label>
-        <textarea name="bio" id="bio">{{ bio }}</textarea>
+    <label for="bio">Bio:</label>
+    <textarea name="bio" id="bio">{{ bio }}</textarea>
 
-        <button class= "profile-button" type="submit">Save updates</button>
-    </form>
-    <a href="{{ url_for('logout') }}"><button class="profile-button">Выйти</button></a>
-    <form method="POST" action="{{ url_for('delete_profile') }}">
-        <button class="delete-button" type="submit">Delete Profile</button>
-    </form>
-
+    <button class="profile-button" type="submit">Save updates</button>
+</form>
+<a href="{{ url_for('logout') }}">
+    <button class="profile-button">Выйти</button>
+</a>
+{% if session['login'] != 'admin' %}
+<form method="POST" action="{{ url_for('delete_profile') }}">
+    <button class="delete-button" type="submit">Delete Profile</button>
+</form>
+{% endif %}
 {% endblock %}
